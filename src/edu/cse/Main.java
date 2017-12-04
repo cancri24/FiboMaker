@@ -1,25 +1,31 @@
 package edu.cse;
 
 public class Main {
-
     public static void main(String[] args) {
-        boolean sequential = false;
+        //Fibonacci Sequence Section
+        boolean sequential = true;
 
-        if(sequential) {
-            for(int i = 5; i < 15; i++) {
-                FibonacciLike sequence = new FibonacciLike(i, (int) (Math.random() * 8), (int) (Math.random() * 8));
-                sequence.run();
-            }
-            System.out.println("Ran Sequentially");
-        }
+        for(int i = 5; i <= 15; i++) {
+            FibonacciLike sequence = new FibonacciLike(i, (int) (Math.random() * 8), (int) (Math.random() * 8));
 
-        else {
-            for (int i = 5; i < 15; i++) {
-                Runnable sequence = new FibonacciLike(i, (int) (Math.random() * 8), (int) (Math.random() * 8));
-                Thread thread = new Thread(sequence);
+            if (sequential) sequence.run();
+
+            else {
+                Thread thread = new Thread((Runnable) sequence);
                 thread.start();
             }
-            System.out.println("Ran Concurrently");
         }
+
+        if(sequential) System.out.println("Ran sequentially.");
+        else System.out.println("Ran concurrently.");
+
+        System.out.println();
+
+        //Pascal's Triangle Section
+        int layers = 8;
+        int startNum = 1;
+
+        PascalLike triangle = new PascalLike(layers, startNum);
+        triangle.make();
     }
 }
