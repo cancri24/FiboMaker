@@ -11,7 +11,7 @@ public class Main {
             if (sequential) sequence.run();
 
             else {
-                Thread thread = new Thread((Runnable) sequence);
+                Thread thread = new Thread(sequence);
                 thread.start();
             }
         }
@@ -23,7 +23,7 @@ public class Main {
 
         //Pascal's Triangle Section
         int layers = 8;
-        int startNum = 1;
+        int startNum = 3;
 
         PascalLike triangle = new PascalLike(layers, startNum);
         triangle.make();

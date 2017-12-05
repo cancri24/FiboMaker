@@ -1,6 +1,6 @@
 package edu.cse;
 
-public class PascalLike {
+class PascalLike {
     private int[][] layerList;
     private int casing;
 
@@ -27,14 +27,9 @@ public class PascalLike {
 //        int indent;
 //        indent = (layerList[layerList.length-1].length)-1;
 
-        for(int i = 0; i < layerList.length; i++) {
-//            for(int k = 0; k < indent; k++) System.out.print(" ");
-//            indent -= 1;
-
-            for(int j = 0; j < layerList[i].length; j++) {
-                System.out.print(layerList[i][j] + " ");
-            }
-            System.out.println("");
+        for(int[] layer : layerList) {
+            for(int item : layer) System.out.print(item + " ");
+            System.out.println();
         }
 
     }
